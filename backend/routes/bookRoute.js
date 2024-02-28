@@ -52,12 +52,15 @@ router.post("/", async (req, res) => {
         });
       }
       const { id } = req.params;
-      const result = await Book.findByIdAndUpdate(id, res.body);
+      // const result = await Book.findByIdAndUpdate(id, {title:req.body.title,author:req.body.author,publishYear:req.body.publishYear,});
+      const result = await Book.findByIdAndUpdate(id, req.body);
+      
       if (!result) {
         return res.status(404).json({ message: "Book not found" });
       }
       return res.status(200).json({ message: "Book Updated Successfully" });
-    } catch (error) {
+    }
+     catch (error) {
       console.log(error.message);
       res.status(500).send({ message: error.message });
     }

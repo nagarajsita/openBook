@@ -36,6 +36,7 @@ const EditBook = () => {
       publishYear,
     }
     setLoading(true);
+    console.log(id);
      axios.put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
