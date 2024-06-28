@@ -21,10 +21,6 @@ app.use(cors());
 // );
 
 
-app.get("/", (req, res) => {
-  return res.status(234).send("Welcome bitches!!!");
-});
-
 
 app.use("/books",bookRoute)
  
